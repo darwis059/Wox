@@ -1,13 +1,13 @@
 name: Docs
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - "www/**"
-      - ".github/workflows/docs.yml"
-      - store-plugin.json
-      - store-theme.json
+  # push:
+  #   branches: [master]
+  #   paths:
+  #     - "www/**"
+  #     - ".github/workflows/docs.yml"
+  #     - store-plugin.json
+  #     - store-theme.json
   workflow_dispatch:
 
 permissions:

@@ -193,6 +193,7 @@ func getInterpreterOptions() []definition.PluginSettingValueSelectOption {
 			{Label: "Bash (WSL)", Value: "bash"},
 			{Label: "Python", Value: "python"},
 			{Label: "Node.js", Value: "node"},
+			{Label: "Nushell", Value: "nu"},
 		}
 	} else if util.IsMacOS() {
 		return []definition.PluginSettingValueSelectOption{
@@ -877,6 +878,8 @@ func (s *ShellPlugin) buildCommand(ctx context.Context, interpreter string, comm
 	switch interpreter {
 	case "powershell":
 		return shellutil.BuildCommandContext(ctx, "powershell", nil, "-Command", command)
+	case "nu":
+		return shellutil.BuildCommandContext(ctx, "nu", nil, "-c", command)
 	case "cmd":
 		return shellutil.BuildCommandContext(ctx, "cmd", nil, "/C", command)
 	case "bash":
